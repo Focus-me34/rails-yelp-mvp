@@ -1,12 +1,12 @@
 class ReviewsController < ApplicationController
+  before_action :set_restaurant, only: %i[new create]
+
   def new
-    @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.new
   end
 
   def create
     @review = Review.new(params_review)
-    @restaurant = Restaurant.find(params[:restaurant_id])
     @review.restaurant = @restaurant
     if @review.valid?
       @review.save
@@ -20,5 +20,9 @@ class ReviewsController < ApplicationController
 
   def params_review
     params.require(:review).permit(:rating, :content)
+  end
+
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 end

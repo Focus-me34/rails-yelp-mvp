@@ -10,6 +10,13 @@
   </head>
 
   <body>
+  <nav>
+  <h2>FIND YOUR RESTAURANT !</h2>
+    <ul>
+      <li><%= link_to("ALL RESTAURANTS", restaurants_path, class: "btn btn-primary") %></li>
+      <li><%= link_to("CREATE A RESTAURANT", new_restaurant_path, class: "btn btn-primary") %></li>
+    </ul>
+  </nav>
     <%= yield %>
   </body>
 </html>

@@ -27,7 +27,7 @@ class RestaurantsController < ApplicationController
     params.require(:restaurant).permit(:name, :address, :phone_number, :category)
   end
 
-  def set_instance
+  def set_restaurant
     @restaurant = Restaurant.find(params[:id])
   end
 end
